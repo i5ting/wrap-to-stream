@@ -1,9 +1,15 @@
 # wrap-to-stream
 
-在react ssr里，使用stream的时候，需要给renderToNodeString的组件外面包一层tag。
+在react ssr里，使用stream的时候，需要给renderToNodeStream的组件外面包一层tag。
 
 ```
-res.write( wrapToStream(`<div hidden><code id="${this.domid}-code">`,this.html, `</code></div>\n`))
+res.write( 
+    wrapToStream(
+        `<div hidden><code id="${this.domid}-code">`
+        , this.reactStream
+        , `</code></div>\n`
+    )
+)
 ```
 
 ## Install
